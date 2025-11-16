@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Usuarios - Bingo</title>
+    <link rel="stylesheet" href="/public/css/estilo.css">
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <div class="dashboard">
+        <!-- Header: usuario -->
+        <div class="user-header">
+          <div class="user-card">
+            <div class="user-avatar">J</div>
+            <div>
+              <div class="user-greeting-name">¡Hola, jorge123!</div>
+              <div class="user-greeting-email">jorge123@grupo70.edu</div>
+            </div>
+          </div>
+          <div class="header-actions">
+            <button class="logout-btn">Cerrar sesión</button>
+          </div>
+        </div>
+
+        <!-- Estadísticas rápidas -->
+        <div class="stats-grid" aria-label="estadísticas">
+          <div class="stat-card">
+            <div class="label">Tu posición</div>
+            <div class="value">#2</div>
+          </div>
+          <div class="stat-card">
+            <div class="label">Total Puntos</div>
+            <div class="value">980</div>
+          </div>
+          <div class="stat-card">
+            <div class="label">Partidas</div>
+            <div class="value">12</div>
+          </div>
+          <div class="stat-card">
+            <div class="label">Mejor Racha</div>
+            <div class="value">4</div>
+          </div>
+          <div class="stat-card">
+            <div class="label">Crear partida</div>
+            <div class="value">➕</div>
+          </div>
+        </div>
+
+        <!-- Ranking global -->
+        <div class="panel">
+          <h3>Ranking Global</h3>
+          <p class="panel-sub">Compite con otros jugadores y sube de posición</p>
+
+          <ul class="ranking-list" aria-live="polite">
+            <li class="ranking-item">
+              <div class="pos">1</div>
+              <div class="meta">
+                <div class="name">Juan Pérez</div>
+                <div class="sub">15 partidas jugadas</div>
+              </div>
+              <div class="points">Puntos <strong>1250</strong></div>
+            </li>
+
+            <li class="ranking-item highlight" aria-current="true">
+              <div class="pos">2</div>
+              <div class="meta">
+                <div class="name">jorge123 (Tu)</div>
+                <div class="sub">12 partidas jugadas</div>
+              </div>
+              <div class="points">Puntos <strong>980</strong></div>
+            </li>
+
+            <li class="ranking-item">
+              <div class="pos">3</div>
+              <div class="meta">
+                <div class="name">Carlos López</div>
+                <div class="sub">10 partidas jugadas</div>
+              </div>
+              <div class="points">Puntos <strong>875</strong></div>
+            </li>
+
+            <li class="ranking-item">
+              <div class="pos">4</div>
+              <div class="meta">
+                <div class="name">Ana Martínez</div>
+                <div class="sub">8 partidas jugadas</div>
+              </div>
+              <div class="points">Puntos <strong>720</strong></div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Mis partidas -->
+        <div class="panel">
+          <h3>Mis partidas</h3>
+          <p class="panel-sub">Gestiona tus partidas o únete a una nueva</p>
+
+          <div class="panel panel-inner">
+            <div class="empty-state">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2C13.1046 2 14 2.89543 14 4C14 5.10457 13.1046 6 12 6C10.8954 6 10 5.10457 10 4C10 2.89543 10.8954 2 12 2Z" fill="#9aa9b3"/>
+                <path d="M4 20C4 16 7 13 11 13H13C17 13 20 16 20 20" stroke="#9aa9b3" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <div>No tienes partidas activas</div>
+              <div class="empty-sub">Crea una nueva partida para comenzar</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <script src="/public/js/index.js"></script>
+  </body>
+</html>
