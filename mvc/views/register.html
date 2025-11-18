@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Registro - Bingo</title>
+    <link rel="stylesheet" href="/public/css/estilo.css">
+  </head>
+  <body>
+    <main>
+      <h1>Registro</h1>
+      <form id="registerForm" action="#" method="post">
+        <label for="name">Nombre</label>
+        <input id="name" name="name" type="text" required>
+
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required>
+
+        <label for="password">Contraseña</label>
+        <input id="password" name="password" type="password" required>
+
+        <button type="submit">Crear cuenta</button>
+      </form>
+
+      <p>¿Ya tienes cuenta? <a href="/mvc/views/login.html">Inicia sesión</a></p>
+      <p>Volver al <a href="/mvc/views/index.html">inicio</a></p>
+    </main>
+
+    <script src="/public/js/index.js"></script>
+  </body>
+</html>

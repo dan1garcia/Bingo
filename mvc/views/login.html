@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Login - Bingo</title>
+    <link rel="stylesheet" href="/public/css/estilo.css">
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <div class="card" role="main" aria-labelledby="loginTitle">
+        <div class="logo" aria-hidden="true">
+          <!-- simple icon -->
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2Z" fill="#203040" opacity="0.95"/>
+            <path d="M21 21H3C3 16.6 6.6 13 11 13H13C17.4 13 21 16.6 21 21Z" fill="#203040" opacity="0.9"/>
+          </svg>
+        </div>
+
+        <h2 id="loginTitle" class="title">Bingo Colaborativo</h2>
+        <div class="subtitle">¡Juega, gana y diviértete con amigos!</div>
+
+        <form id="loginForm" action="#" method="post" novalidate>
+          <div class="form-group input-wrap">
+            <!-- email icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M4 6H20V18H4V6Z" stroke="#1f2d3d" stroke-opacity="0.35" stroke-width="1.2" fill="none"/>
+              <path d="M4 6L12 13L20 6" stroke="#1f2d3d" stroke-opacity="0.35" stroke-width="1.2" fill="none"/>
+            </svg>
+            <input class="input" id="email" name="email" type="email" placeholder="tu@correo.com" required>
+          </div>
+
+          <div class="form-group input-wrap">
+            <!-- lock icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <rect x="3" y="11" width="18" height="10" rx="2" stroke="#1f2d3d" stroke-opacity="0.35" stroke-width="1.2" fill="none"/>
+              <path d="M7 11V8C7 5.8 8.8 4 11 4C13.2 4 15 5.8 15 8V11" stroke="#1f2d3d" stroke-opacity="0.35" stroke-width="1.2" fill="none"/>
+            </svg>
+            <input class="input" id="password" name="password" type="password" placeholder="Ingresa tu contraseña" required>
+          </div>
+
+          <div class="form-group">
+            <button class="btn" type="submit">Iniciar sesión</button>
+          </div>
+        </form>
+
+        <div class="muted-links">
+          ¿No tienes cuenta? <a href="/register">Regístrate</a>
+        </div>
+
+      </div>
+    </div>
+
+    <script src="/public/js/index.js"></script>
+  </body>
+</html>
