@@ -133,7 +133,7 @@ body::before{
   justify-content:space-between;
   gap:16px;
   margin-bottom:18px;
-  margin-top: 300px;
+  margin-top: 380px;
 }
 .user-card{
   display:flex;
@@ -148,7 +148,7 @@ body::before{
 .user-avatar{
   width:44px;height:44px;border-radius:50%;background:#0aa07a;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:700;
 }
-.logout-btn{background:transparent;border:1px solid rgba(16,30,40,0.06);padding:8px 12px;border-radius:12px;cursor:pointer}
+.logout-btn{background:transparent;border:1px solid rgba(16,30,40,0.06);padding:8px 12px;border-radius:12px;cursor:pointer;margin-right:10px}
 
 .stats-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin:12px 0 20px}
 .stat-card{background:linear-gradient(180deg,#fff,#fbfeff);padding:16px;border-radius:12px;box-shadow:0 12px 30px rgba(8,32,64,0.06);text-align:left}
