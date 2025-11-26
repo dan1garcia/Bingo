@@ -11,6 +11,7 @@ def get_db_connection():
             password='12345'  # Cambia esto por tu contraseña de MySQL
         )
         if connection.is_connected():
+            print("Conexión a la base de datos establecida correctamente.")
             return connection
     except Error as e:
         print(f"Error al conectar a la base de datos: {e}")
