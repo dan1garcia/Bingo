@@ -74,6 +74,14 @@ def create_app():
             return send_from_directory(os.path.join(VIEWS_DIR, 'admin'), 'users.html')
         abort(404)
 
+    @app.route('/game/<code>')
+    def game_view(code):
+        # Sirve la vista del tablero de la partida indicada por código
+        game_path = os.path.join(VIEWS_DIR, 'game.html')
+        if os.path.exists(game_path):
+            return send_from_directory(VIEWS_DIR, 'game.html')
+        abort(404)
+
     # Rutas genéricas para acceder a vistas y assets
     @app.route('/mvc/views/<path:filename>')
     def views_files(filename):

@@ -1,0 +1,308 @@
+/* game.css - Estilos específicos para la vista del juego de Bingo */
+
+/* Variables específicas del juego */
+:root {
+  --game-bg: #00b386;
+  --game-bg2: #2fb8ff;
+  --sidebar-bg: rgba(255, 255, 255, 0.95);
+  --board-bg: rgba(255, 255, 255, 0.98);
+  --number-bg: #ff9500;
+  --draw-btn-bg: #00c48c;
+}
+
+/* Layout principal del juego */
+.game-topbar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding: 0;
+}
+
+.topbar-card {
+  background: var(--board-bg);
+  border-radius: 12px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  box-shadow: 0 8px 24px rgba(8, 32, 64, 0.12);
+}
+
+.topbar-spacer {
+  flex: 1;
+}
+
+.game-layout {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Panel del tablero principal */
+.board-panel {
+  flex: 1;
+  min-width: 0;
+}
+
+.board-panel h3 {
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0 0 12px 0;
+  font-size: 16px;
+  text-align: left;
+}
+
+/* Grid del tablero de bingo */
+.board-grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 6px;
+  background: var(--board-bg);
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(8, 32, 64, 0.15);
+  max-width: 600px;
+}
+
+.board-cell {
+  background: #fff;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+  min-height: 45px;
+  color: #334;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+}
+
+.board-cell:hover {
+  background: #f8f9fa;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+}
+
+.board-cell.marked {
+  background: var(--accent);
+  color: white;
+  transform: scale(0.95);
+  border-color: #048a5a;
+}
+
+.board-cell.marked:hover {
+  transform: scale(0.95);
+  background: #048a5a;
+}
+
+/* Sidebar del juego */
+.sidebar {
+  width: 280px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sidebar .panel {
+  background: var(--sidebar-bg);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 8px 24px rgba(8, 32, 64, 0.12);
+}
+
+.sidebar .panel h4 {
+  margin: 0 0 16px 0;
+  font-size: 14px;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Número sorteado grande */
+.big-number {
+  background: linear-gradient(135deg, var(--number-bg), #ff7b00);
+  color: white;
+  font-size: 48px;
+  font-weight: 800;
+  text-align: center;
+  padding: 24px;
+  border-radius: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 8px 20px rgba(255, 149, 0, 0.3);
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Botón de sortear */
+#drawNumberBtn {
+  background: linear-gradient(135deg, var(--draw-btn-bg), #00a676);
+  border: none;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+#drawNumberBtn:hover {
+  background: linear-gradient(135deg, #00a676, #008a62);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0, 196, 140, 0.3);
+}
+
+/* Lista de números sorteados */
+.drawn-list {
+  background: #f8f9fb;
+  border-radius: 8px;
+  padding: 12px;
+  min-height: 120px;
+  color: #666;
+  font-size: 14px;
+  line-height: 1.6;
+  border: 1px solid rgba(16, 30, 40, 0.06);
+}
+
+.drawn-list.has-numbers {
+  color: #333;
+}
+
+.drawn-number {
+  display: inline-block;
+  background: #e8f4f1;
+  color: #046b3f;
+  padding: 4px 8px;
+  border-radius: 6px;
+  margin: 2px;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+/* Responsive para tablets */
+@media (max-width: 768px) {
+  .game-layout {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .sidebar {
+    width: 100%;
+    order: -1;
+  }
+  
+  .board-grid {
+    grid-template-columns: repeat(8, 1fr);
+    gap: 4px;
+    max-width: 100%;
+  }
+  
+  .board-cell {
+    min-height: 40px;
+    font-size: 13px;
+  }
+  
+  .big-number {
+    font-size: 36px;
+    padding: 20px;
+  }
+  
+  .game-topbar {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  
+  .topbar-card {
+    padding: 12px 14px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+}
+
+/* Responsive para móviles */
+@media (max-width: 480px) {
+  .board-grid {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 3px;
+    padding: 12px;
+  }
+  
+  .board-cell {
+    min-height: 32px;
+    font-size: 11px;
+    border-radius: 4px;
+  }
+  
+  .sidebar .panel {
+    padding: 16px;
+  }
+  
+  .big-number {
+    font-size: 28px;
+    padding: 16px;
+    min-height: 80px;
+  }
+  
+  .game-topbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+  
+  .topbar-card {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    padding: 12px;
+  }
+  
+  .topbar-spacer {
+    display: none;
+  }
+}
+
+/* Animaciones para números sorteados */
+@keyframes numberDraw {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.big-number.animate {
+  animation: numberDraw 0.6s ease-out;
+}
+
+/* Estado de carga */
+.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+#drawNumberBtn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  transform: none;
+}
+
+#drawNumberBtn:disabled:hover {
+  transform: none;
+  box-shadow: none;
+}

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Partida - Bingo</title>
+    <link rel="stylesheet" href="/public/css/estilo.css">
+    <link rel="stylesheet" href="/public/css/game.css">
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <div class="dashboard">
+        <div class="game-topbar" role="navigation">
+          <div class="topbar-card">
+            <button onclick="history.back()" class="logout-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Salir
+            </button>
+            <div class="topbar-spacer"></div>
+            <div class="pill">Código: BINGO001</div>
+            <button class="btn" id="btnStartDraw">Unirse</button>
+          </div>
+        </div>
+
+        <div class="game-layout">
+          <section class="board-panel">
+            <h3>Tu Tablero</h3>
+            <div id="boardGrid" class="board-grid" aria-label="tablero de bingo"></div>
+          </section>
+
+          <aside class="sidebar">
+            <div class="panel">
+              <h4>Número Sorteado</h4>
+              <div id="currentNumber" class="big-number">-</div>
+              <button id="drawNumberBtn" class="btn">Sortear número</button>
+            </div>
+
+            <div class="panel">
+              <h4>Números Sorteados</h4>
+              <p class="panel-sub">0 de 90</p>
+              <div id="drawnList" class="drawn-list">Aún no se han sorteado números</div>
+            </div>
+          </aside>
+        </div>
+
+      </div>
+    </div>
+
+    <script>
+      // Tomar código desde la URL y mostrarlo
+      (function(){
+        const codeElm = document.getElementById('gameCode');
+        const pathParts = location.pathname.split('/');
+        const code = pathParts[pathParts.length-1] || '';
+        if (codeElm) codeElm.textContent = code.toUpperCase();
+      })();
+    </script>
+    <script src="/public/js/board.js"></script>
+  </body>
+</html>

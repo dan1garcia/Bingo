@@ -11,39 +11,42 @@
       <div class="dashboard">
         <!-- Header: usuario -->
         <div class="user-header">
-          <div class="user-card">
-            <div class="user-avatar">J</div>
+          <div class="user-info">
+            <div class="user-avatar-large">J</div>
             <div>
-              <div class="user-greeting-name">¡Hola, jorge123!</div>
-              <div class="user-greeting-email">jorge123@grupo70.edu</div>
+              <div class="greeting">¡Hola, jorge123!</div>
+              <div class="greeting-sub">jorge123@grupo701.edu</div>
             </div>
           </div>
           <div class="header-actions">
-            <button class="logout-btn">Cerrar sesión</button>
+            <button class="logout-btn" onclick="window.location.href='/login'">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16 17L21 12L16 7" stroke="#1b3344" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M21 12H9" stroke="#1b3344" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M12 20H6C4.89543 20 4 19.1046 4 18V6C4 4.89543 4.89543 4 6 4H12" stroke="#1b3344" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Cerrar sesión
+            </button>
           </div>
         </div>
 
         <!-- Estadísticas rápidas -->
         <div class="stats-grid" aria-label="estadísticas">
-          <div class="stat-card">
-            <div class="label">Tu posición</div>
-            <div class="value">#2</div>
+          <div class="stat-card color-1">
+            <div class="stat-icon">🏆</div>
+            <div class="stat-text"><div class="label">Tu Posición</div><div class="value">#2</div></div>
           </div>
-          <div class="stat-card">
-            <div class="label">Total Puntos</div>
-            <div class="value">980</div>
+          <div class="stat-card color-2">
+            <div class="stat-icon">🎖️</div>
+            <div class="stat-text"><div class="label">Total Puntos</div><div class="value">980</div></div>
           </div>
-          <div class="stat-card">
-            <div class="label">Partidas</div>
-            <div class="value">12</div>
+          <div class="stat-card color-3">
+            <div class="stat-icon">▶️</div>
+            <div class="stat-text"><div class="label">Partidas</div><div class="value">12</div></div>
           </div>
-          <div class="stat-card">
-            <div class="label">Mejor Racha</div>
-            <div class="value">4</div>
-          </div>
-          <div class="stat-card">
-            <div class="label">Crear partida</div>
-            <div class="value">➕</div>
+          <div id="createCard" class="stat-card color-5 clickable" role="button" tabindex="0" aria-haspopup="dialog" aria-controls="createModal">
+            <div class="stat-icon">✚</div>
+            <div class="stat-text"><div class="label">Crear Partida</div><div class="value">&nbsp;</div></div>
           </div>
         </div>
 
@@ -97,20 +100,51 @@
           <p class="panel-sub">Gestiona tus partidas o únete a una nueva</p>
 
           <div class="panel panel-inner">
-            <div class="empty-state">
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 2C13.1046 2 14 2.89543 14 4C14 5.10457 13.1046 6 12 6C10.8954 6 10 5.10457 10 4C10 2.89543 10.8954 2 12 2Z" fill="#9aa9b3"/>
-                <path d="M4 20C4 16 7 13 11 13H13C17 13 20 16 20 20" stroke="#9aa9b3" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              <div>No tienes partidas activas</div>
-              <div class="empty-sub">Crea una nueva partida para comenzar</div>
+            <div id="myGamesContainer">
+              <div class="empty-state">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 2C13.1046 2 14 2.89543 14 4C14 5.10457 13.1046 6 12 6C10.8954 6 10 5.10457 10 4C10 2.89543 10.8954 2 12 2Z" fill="#9aa9b3"/>
+                  <path d="M4 20C4 16 7 13 11 13H13C17 13 20 16 20 20" stroke="#9aa9b3" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <div>No tienes partidas activas</div>
+                <div class="empty-sub">Crea una nueva partida para comenzar</div>
+              </div>
             </div>
           </div>
         </div>
 
       </div>
     </div>
+    
+      <!-- Modal Crear partida -->
+      <div id="createModalOverlay" class="modal-overlay" aria-hidden="true">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="createModalTitle">
+          <div class="modal-header">
+            <div>
+              <div id="createModalTitle" class="modal-title">Crear nueva partida</div>
+              <div class="modal-sub">Configura los detalles de tu partida de bingo</div>
+            </div>
+            <button id="closeModalBtn" class="logout-btn" aria-label="Cerrar modal">✕</button>
+          </div>
 
-    <script src="/public/js/index.js"></script>
+          <form id="createGameForm">
+            <div class="modal-body">
+              <label for="gameName" class="modal-sub">Nombre de la partida</label>
+              <input id="gameName" name="gameName" class="input" placeholder="Bingo del viernes" required>
+
+              <label for="playersCount" class="modal-sub modal-label-top">Número de jugadores</label>
+              <input id="playersCount" name="playersCount" class="input" type="number" min="2" max="50" value="10" required>
+              <div class="note">Mínimo 2 jugadores, máximo 50</div>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" id="cancelCreate" class="btn-secondary">Cancelar</button>
+              <button type="submit" class="btn">Crear partida</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <script src="/public/js/index.js"></script>
   </body>
 </html>
