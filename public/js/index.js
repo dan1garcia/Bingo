@@ -102,7 +102,8 @@ document.addEventListener('DOMContentLoaded', function () {
 				// añadir evento al botón Unirse
 				const joinBtn = card.querySelector('.join-btn');
 				if (joinBtn) joinBtn.addEventListener('click', function () {
-					alert('Unido a la partida: ' + name + ' (código ' + code + ')');
+					// navegar a la vista de la partida
+					window.location.href = '/game/' + encodeURIComponent(code);
 				});
 
 				container.appendChild(card);
