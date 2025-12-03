@@ -8,7 +8,7 @@ def get_db_connection():
             host='localhost',
             database='bingo_colaborativo',
             user='root',  # Cambia esto por tu usuario de MySQL
-            password='12345'  # Cambia esto por tu contraseña de MySQL
+            password='311204'  # Cambia esto por tu contraseña de MySQL
         )
         if connection.is_connected():
             print("Conexión a la base de datos establecida correctamente.")
